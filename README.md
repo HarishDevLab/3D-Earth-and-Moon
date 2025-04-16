@@ -21,4 +21,5 @@ A 3D animated simulation of Earth and the Moon using **Node.js** and WebGL/Three
 
 1. Clone the repo:
    ```bash
+   https://github.com/HarishDevLab/3D-Earth-and-Moon
    
