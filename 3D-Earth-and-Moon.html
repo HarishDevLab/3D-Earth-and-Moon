@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Earth and Moon in Space</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+    <script>
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ antialias: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        document.body.appendChild(renderer.domElement);
+
+        const textureLoader = new THREE.TextureLoader();
+        const earthTexture = textureLoader.load('https://threejs.org/examples/textures/planets/earth_atmos_2048.jpg');
+        const earthBumpMap = textureLoader.load('https://threejs.org/examples/textures/planets/earth_bump_2048.jpg');
+        const earthSpecMap = textureLoader.load('https://threejs.org/examples/textures/planets/earth_specular_2048.jpg');
+        
+        const earthGeometry = new THREE.SphereGeometry(2, 64, 64);
+        const earthMaterial = new THREE.MeshPhongMaterial({
+            map: earthTexture,
+            bumpMap: earthBumpMap,
+            bumpScale: 0.1,
+            specularMap: earthSpecMap,
+            specular: new THREE.Color(0x333333)
+        });
+        const earth = new THREE.Mesh(earthGeometry, earthMaterial);
+        scene.add(earth);
+
+        const moonTexture = textureLoader.load('https://threejs.org/examples/textures/planets/moon_1024.jpg');
+        const moonGeometry = new THREE.SphereGeometry(0.5, 32, 32);
+        const moonMaterial = new THREE.MeshPhongMaterial({ map: moonTexture });
+        const moon = new THREE.Mesh(moonGeometry, moonMaterial);
+        scene.add(moon);
+        
+        const light = new THREE.DirectionalLight(0xffffff, 1);
+        light.position.set(5, 3, 5).normalize();
+        scene.add(light);
+
+        const ambientLight = new THREE.AmbientLight(0x222222);
+        scene.add(ambientLight);
+
+        camera.position.z = 10;
+        
+        let moonAngle = 0;
+        function animate() {
+            requestAnimationFrame(animate);
+            
+            earth.rotation.y += 0.005;
+            
+            moonAngle += 0.02;
+            moon.position.x = 5 * Math.cos(moonAngle);
+            moon.position.z = 5 * Math.sin(moonAngle);
+            moon.rotation.y += 0.01;
+            
+            renderer.render(scene, camera);
+        }
+        
+        animate();
+    </script>
+</body>
+</html>
