@@ -1,6 +1,6 @@
 # 🌍 Earth & Moon 3D Animation
 
-A 3D animated simulation of Earth and the Moon using **Node.js** and WebGL/Three.js (or your preferred 3D library). This project visually represents the orbital motion and rotation of Earth and its moon in a simple, smooth animation.
+A 3D animated simulation of Earth and the Moon using **Three.js**. This project visually represents the orbital motion and rotation of Earth and its moon in a simple, smooth animation.
 
 ## 🚀 Features
 
@@ -12,7 +12,6 @@ A 3D animated simulation of Earth and the Moon using **Node.js** and WebGL/Three
 
 ## 🛠️ Tech Stack
 
-- **Node.js**
 - **Three.js** 
 - **HTML5 / CSS3 / JavaScript**
 
