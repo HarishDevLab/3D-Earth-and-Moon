@@ -2,6 +2,11 @@
 
 A 3D animated simulation of Earth and the Moon using **Three.js**. This project visually represents the orbital motion and rotation of Earth and its moon in a simple, smooth animation.
 
+## Support This Project
+
+[Buy Me a Coffee](https://buymeacoffee.com/harishdevlab)  
+[Support via UPI](https://drive.google.com/file/d/153n7zxHg-srjOmtZEUESpnN_FlQbBKko/view?usp=sharing)
+
 ## 🚀 Features
 
 - Realistic 3D models of Earth and the Moon
